@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class GitHubAuthScreen extends StatefulWidget {
   const GitHubAuthScreen({super.key});

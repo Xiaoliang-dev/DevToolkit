@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,7 +12,6 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   ThemeMode _themeMode = ThemeMode.system;
   bool _showAnimations = true;
-  String _defaultTab = 'home';
 
   @override
   void initState() {
@@ -27,7 +25,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       final theme = prefs.getString('theme_mode') ?? 'system';
       _themeMode = _parseThemeMode(theme);
       _showAnimations = prefs.getBool('show_animations') ?? true;
-      _defaultTab = prefs.getString('default_tab') ?? 'home';
     });
   }
 
@@ -67,7 +64,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),

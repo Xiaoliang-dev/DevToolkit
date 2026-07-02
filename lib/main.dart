@@ -65,7 +65,6 @@ class DevToolkitApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFD0BCFF),
           brightness: Brightness.dark,
-          surface: const Color(0xFF1C1B1F),
           surface: const Color(0xFF2B2930),
         ),
         cardTheme: CardTheme(

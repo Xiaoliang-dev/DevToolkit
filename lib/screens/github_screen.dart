@@ -1,7 +1,5 @@
-import 'dart:async';
-import 'dart:io';
-import 'dart:math' as math;
-import 'package:flutter/foundation.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'github/repo_browser.dart';
@@ -18,9 +16,7 @@ class _GitHubScreenState extends State<GitHubScreen> with SingleTickerProviderSt
   late TabController _tabController;
   bool _isLoggedIn = false;
   String _username = '';
-  String _token = '';
   final List<GitHubRepo> _repos = [];
-  final List<GitHubNotification> _notifications = [];
   bool _isLoading = false;
 
   @override
@@ -42,7 +38,6 @@ class _GitHubScreenState extends State<GitHubScreen> with SingleTickerProviderSt
     final username = prefs.getString('github_username');
     if (token != null && token.isNotEmpty) {
       setState(() {
-        _token = token;
         _username = username ?? '';
         _isLoggedIn = true;
       });
@@ -112,7 +107,6 @@ class _GitHubScreenState extends State<GitHubScreen> with SingleTickerProviderSt
       await prefs.setString('github_token', result['token'] ?? '');
       await prefs.setString('github_username', result['username'] ?? '');
       setState(() {
-        _token = result['token'] ?? '';
         _username = result['username'] ?? '';
         _isLoggedIn = true;
       });
@@ -127,7 +121,6 @@ class _GitHubScreenState extends State<GitHubScreen> with SingleTickerProviderSt
     setState(() {
       _isLoggedIn = false;
       _username = '';
-      _token = '';
       _repos.clear();
     });
   }
@@ -617,7 +610,7 @@ class _GitTerminalSheetState extends State<GitTerminalSheet> {
                 height: 4,
                 decoration: BoxDecoration(
                   color: Colors.grey,
-                  borderRadius: BorderRadius.circular(2),
+                  borderRadius: const BorderRadius.all(Radius.circular(2)),
                 ),
               ),
               Padding(

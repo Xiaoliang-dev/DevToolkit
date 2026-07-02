@@ -345,7 +345,7 @@ class _CodeViewerScreenState extends State<CodeViewerScreen> {
     ];
 
     final keywordPattern = keywords.join('|');
-    final stringPattern = "'(?:[^'\\\\]|\\\\.)*'";
+    const stringPattern = "'(?:[^'\\\\]|\\\\.)*'";
 
     return [
       HighlightPattern(
