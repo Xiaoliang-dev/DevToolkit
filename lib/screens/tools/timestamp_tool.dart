@@ -363,6 +363,8 @@ class _TimestampToolState extends State<TimestampTool> {
   }
 
   Future<void> _pickDateTime() async {
+    if (!mounted) return;
+
     final date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -370,14 +372,14 @@ class _TimestampToolState extends State<TimestampTool> {
       lastDate: DateTime(2100),
     );
     if (date == null) return;
-    if (!context.mounted) return;
+
+    if (!mounted) return;
 
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
     if (time == null) return;
-    if (!context.mounted) return;
 
     final dt = DateTime(date.year, date.month, date.day, time.hour, time.minute);
     _dateController.text = DateFormat('yyyy-MM-dd HH:mm:ss').format(dt);
