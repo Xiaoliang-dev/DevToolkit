@@ -353,7 +353,7 @@ class _TimestampToolState extends State<TimestampTool> {
       }
 
       if (!parsed) {
-        throw FormatException('Unrecognized date format');
+        throw const FormatException('Unrecognized date format');
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -369,13 +369,15 @@ class _TimestampToolState extends State<TimestampTool> {
       firstDate: DateTime(1970),
       lastDate: DateTime(2100),
     );
-    if (date == null || !context.mounted) return;
+    if (date == null) return;
+    if (!context.mounted) return;
 
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
-    if (time == null || !context.mounted) return;
+    if (time == null) return;
+    if (!context.mounted) return;
 
     final dt = DateTime(date.year, date.month, date.day, time.hour, time.minute);
     _dateController.text = DateFormat('yyyy-MM-dd HH:mm:ss').format(dt);

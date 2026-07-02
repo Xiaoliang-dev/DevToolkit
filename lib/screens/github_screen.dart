@@ -598,9 +598,9 @@ class _GitTerminalSheetState extends State<GitTerminalSheet> {
       expand: false,
       builder: (context, scrollController) {
         return Container(
-          decoration: BoxDecoration(
-            color: const Color(0xFF1E1E1E),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+          decoration: const BoxDecoration(
+            color: Color(0xFF1E1E1E),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           ),
           child: Column(
             children: [
@@ -608,9 +608,9 @@ class _GitTerminalSheetState extends State<GitTerminalSheet> {
                 margin: const EdgeInsets.only(top: 8),
                 width: 40,
                 height: 4,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.grey,
-                  borderRadius: const BorderRadius.all(Radius.circular(2)),
+                  borderRadius: BorderRadius.all(Radius.circular(2)),
                 ),
               ),
               Padding(

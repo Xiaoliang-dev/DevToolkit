@@ -13,7 +13,6 @@ class _QrToolState extends State<QrTool> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _textController = TextEditingController();
   final TextEditingController _scanResultController = TextEditingController();
-  final bool _generateErrorCorrection = true;
   final int _qrSize = 200;
   List<List<bool>>? _qrMatrix;
 
