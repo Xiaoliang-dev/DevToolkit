@@ -38,8 +38,8 @@ void main() {
     await tester.tap(find.byIcon(Icons.settings_outlined));
     await tester.pump(const Duration(milliseconds: 500));
 
-    // Navigate back to home
-    await tester.tap(find.byIcon(Icons.home));
+    // Navigate back to home (Home icon is now outlined)
+    await tester.tap(find.byIcon(Icons.home_outlined));
     await tester.pump(const Duration(milliseconds: 500));
   });
 }
