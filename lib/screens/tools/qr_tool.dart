@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'dart:math' as math;
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,8 +13,8 @@ class _QrToolState extends State<QrTool> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _textController = TextEditingController();
   final TextEditingController _scanResultController = TextEditingController();
-  bool _generateErrorCorrection = true;
-  int _qrSize = 200;
+  final bool _generateErrorCorrection = true;
+  final int _qrSize = 200;
   List<List<bool>>? _qrMatrix;
 
   @override

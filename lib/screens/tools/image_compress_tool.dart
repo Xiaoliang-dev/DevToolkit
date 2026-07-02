@@ -394,7 +394,6 @@ class _ImageCompressToolState extends State<ImageCompressTool> {
     if (original.length <= targetSize) return original;
 
     // Simple downsampling simulation
-    final ratio = targetSize / original.length;
     final result = Uint8List(targetSize);
     final step = original.length / targetSize;
 

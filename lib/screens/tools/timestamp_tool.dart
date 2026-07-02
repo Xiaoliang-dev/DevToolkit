@@ -369,13 +369,13 @@ class _TimestampToolState extends State<TimestampTool> {
       firstDate: DateTime(1970),
       lastDate: DateTime(2100),
     );
-    if (date == null) return;
+    if (date == null || !context.mounted) return;
 
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
-    if (time == null) return;
+    if (time == null || !context.mounted) return;
 
     final dt = DateTime(date.year, date.month, date.day, time.hour, time.minute);
     _dateController.text = DateFormat('yyyy-MM-dd HH:mm:ss').format(dt);
