@@ -357,7 +357,7 @@ class _CodeViewerScreenState extends State<CodeViewerScreen> {
         isDark ? const Color(0xFFCE9178) : const Color(0xFFA31515),
       ),
       HighlightPattern(
-        RegExp(r'\b($keywordPattern)\b'),
+        RegExp(r'\b(' + keywordPattern + r')\b'),
         isDark ? const Color(0xFF569CD6) : const Color(0xFF0000FF),
       ),
       HighlightPattern(
