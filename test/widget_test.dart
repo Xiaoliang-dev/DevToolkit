@@ -40,6 +40,7 @@ void main() {
 
     // Navigate back to home (Home icon is now outlined)
     await tester.tap(find.byIcon(Icons.home_outlined));
-    await tester.pump(const Duration(milliseconds: 500));
+    // HomeScreen has finite animations (800ms header + 600ms grid), so pumpAndSettle is safe
+    await tester.pumpAndSettle();
   });
 }
